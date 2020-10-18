@@ -1,0 +1,22 @@
+<div class="login_area">
+  <div class="info">パスワードお忘れですか？</div>
+  <div class=messeage>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+  <div class="login_box">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field_box">
+        <p class="login_label">メールアドレス</p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "パスワードリセット手順の送信" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "devise/shared/links" %>
+</div>
